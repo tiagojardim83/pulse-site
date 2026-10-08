@@ -6,8 +6,8 @@ menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeM
 document.addEventListener('keydown', e => { if(e.key === 'Escape' && !menu.hidden){ closeMenu(); toggle.focus(); } });
 document.querySelector('#year').textContent = new Date().getFullYear();
 
-const intro = document.querySelector('.intro');
-if (document.documentElement.classList.contains('intro-active') && intro) {
+const introTemplate = document.querySelector('.intro')?.cloneNode(true);
+function activateIntro(intro) {
   const pageSections = document.querySelectorAll('body > .header, body > main, body > footer');
   pageSections.forEach(section => section.inert = true);
   const line = intro.querySelector('.intro-ecg-line');
@@ -74,6 +74,24 @@ if (document.documentElement.classList.contains('intro-active') && intro) {
   intro.querySelector('.intro-skip').addEventListener('click', finishIntro);
   document.querySelector('.skip').addEventListener('click', finishIntro);
 }
+if (document.documentElement.classList.contains('intro-active') && introTemplate) {
+  activateIntro(document.querySelector('.intro'));
+}
+const headerLogo = document.querySelector('.header .logo');
+headerLogo.addEventListener('click', event => {
+  if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  event.preventDefault();
+  document.querySelectorAll('.intro').forEach(element => element.remove());
+  document.documentElement.classList.remove('intro-ending');
+  document.documentElement.classList.add('intro-active');
+  history.replaceState(null, '', location.pathname + location.search);
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  const replay = introTemplate.cloneNode(true);
+  document.body.prepend(replay);
+  activateIntro(replay);
+  replay.querySelector('.intro-skip').focus({ preventScroll: true });
+});
 
 const clientCarousel = document.querySelector('#client-carousel');
 if (clientCarousel) {
