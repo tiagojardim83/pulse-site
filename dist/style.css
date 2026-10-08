@@ -79,16 +79,16 @@ body>.header,body>main,body>footer{transition:opacity .75s ease,transform .75s e
 .ribbon:hover .ribbon-track{animation-play-state:paused}
 @media(prefers-reduced-motion:reduce){.ribbon-track{animation:none;transform:translateX(-50%)}}
 
-/* As fundadoras surgem da base da seção; o retrato é cortado antes das pernas. */
+/* As fundadoras surgem da base da seção, com um pouco das pernas visível. */
 .about{padding-top:60px;padding-bottom:60px;overflow:hidden}
 .about .section-marker{margin-bottom:20px}
 .about-grid{align-items:end}
 .about-visual{width:100%;max-width:500px;margin-bottom:-60px}
-.photo-window{width:100%;height:480px;overflow:hidden;background:transparent}
+.photo-window{width:100%;height:530px;overflow:hidden;background:transparent}
 .photo-window img{width:100%;height:auto;max-width:none;object-fit:initial;object-position:initial;transform:translateY(-14.71%);display:block}
 .about-copy{padding-bottom:26px}
-@media(max-width:1050px){.photo-window{height:clamp(400px,42vw,480px)}.about-copy{padding-bottom:20px}}
-@media(max-width:700px){.about{padding-top:48px;padding-bottom:48px}.about-grid{gap:28px}.about-copy{order:1;padding-bottom:0}.about-visual{order:2;max-width:440px;margin:0 auto -48px}.photo-window{height:clamp(300px,85vw,390px)}.about h2{margin-bottom:24px}.about .history{margin-top:22px}}
+@media(max-width:1050px){.photo-window{height:clamp(430px,46vw,530px)}.about-copy{padding-bottom:20px}}
+@media(max-width:700px){.about{padding-top:48px;padding-bottom:48px}.about-grid{gap:28px}.about-copy{order:1;padding-bottom:0}.about-visual{order:2;max-width:440px;margin:0 auto -48px}.photo-window{height:clamp(325px,94vw,430px)}.about h2{margin-bottom:24px}.about .history{margin-top:22px}}
 
 @media(prefers-reduced-motion:no-preference){
   .about.motion-ready .about-visual{opacity:0;transform:translateY(110px)}
