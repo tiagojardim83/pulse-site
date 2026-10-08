@@ -7,6 +7,13 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape' && !menu.hidde
 document.querySelector('#year').textContent = new Date().getFullYear();
 
 const introTemplate = document.querySelector('.intro')?.cloneNode(true);
+function alignHeroAtTop() {
+  const root = document.documentElement;
+  const previousBehavior = root.style.scrollBehavior;
+  root.style.scrollBehavior = 'auto';
+  window.scrollTo(0, 0);
+  root.style.scrollBehavior = previousBehavior;
+}
 function activateIntro(intro) {
   const pageSections = document.querySelectorAll('body > .header, body > main, body > footer');
   pageSections.forEach(section => section.inert = true);
@@ -30,6 +37,7 @@ function activateIntro(intro) {
 
   function onWheel(event) {
     event.preventDefault();
+    if (finished) return;
     if (event.deltaY <= 0) return;
     wheelDistance += event.deltaY;
     if (wheelDistance > 45) finishIntro();
@@ -54,18 +62,22 @@ function activateIntro(intro) {
     if (finished) return;
     finished = true;
     beatTimers.forEach(clearTimeout);
-    window.removeEventListener('wheel', onWheel);
-    window.removeEventListener('keydown', onKeyDown);
     intro.removeEventListener('pointerdown', onPointerDown);
     intro.removeEventListener('pointerup', onPointerUp);
     line.removeEventListener('animationiteration', resetBeatCount);
     document.documentElement.classList.remove('intro-active');
-    document.documentElement.classList.add('intro-ending');
-    pageSections.forEach(section => section.inert = false);
-    intro.addEventListener('transitionend', event => {
-      if (event.target === intro) intro.remove();
-    }, { once: true });
-    setTimeout(() => intro.remove(), 1100);
+    document.documentElement.classList.add('intro-ending', 'intro-transitioning');
+    history.replaceState(null, '', location.pathname + location.search);
+    alignHeroAtTop();
+    setTimeout(() => {
+      alignHeroAtTop();
+      intro.remove();
+      document.documentElement.classList.remove('intro-ending', 'intro-transitioning');
+      pageSections.forEach(section => section.inert = false);
+      window.removeEventListener('wheel', onWheel);
+      window.removeEventListener('keydown', onKeyDown);
+      alignHeroAtTop();
+    }, 1100);
   }
   window.addEventListener('wheel', onWheel, { passive: false });
   window.addEventListener('keydown', onKeyDown);
@@ -86,7 +98,7 @@ headerLogo.addEventListener('click', event => {
   document.documentElement.classList.remove('intro-ending');
   document.documentElement.classList.add('intro-active');
   history.replaceState(null, '', location.pathname + location.search);
-  window.scrollTo({ top: 0, behavior: 'instant' });
+  alignHeroAtTop();
   const replay = introTemplate.cloneNode(true);
   document.body.prepend(replay);
   activateIntro(replay);
