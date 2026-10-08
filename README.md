@@ -10,14 +10,14 @@ Execute `python3 -m http.server 4187 --bind 127.0.0.1 --directory dist` nesta pa
 
 - `dist/index.html`: conteúdo, contatos e estrutura.
 - `dist/style.css`: identidade visual e comportamento responsivo.
-- `dist/script.js`: menu móvel e ano do rodapé.
+- `dist/script.js`: abertura animada, menu móvel e ano do rodapé.
 - `dist/assets/`: imagens extraídas do PDF original.
 
 Fontes DM Sans e Manrope carregadas pelo Google Fonts, com alternativas locais. Sem formulário ou coleta de dados. Links para WhatsApp, Instagram e e-mail usam os contatos fornecidos.
 
 ## Validação
 
-Verificado no Chrome em 1440px e 390px: ausência de overflow horizontal, imagens carregadas, expansão dos serviços, abertura e fechamento do menu móvel. Respeita preferência de movimento reduzido e inclui foco visível e navegação por teclado.
+Verificado no Chrome em 1440px e 390px: ausência de overflow horizontal, imagens carregadas, expansão dos serviços, abertura e fechamento do menu móvel. A abertura desenha três batimentos antes de revelar a hero, oferece opção de pular e é ignorada quando há preferência por movimento reduzido. O site inclui foco visível e navegação por teclado.
 
 ## Hospedagem
 
