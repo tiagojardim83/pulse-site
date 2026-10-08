@@ -6,6 +6,21 @@ menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeM
 document.addEventListener('keydown', e => { if(e.key === 'Escape' && !menu.hidden){ closeMenu(); toggle.focus(); } });
 document.querySelector('#year').textContent = new Date().getFullYear();
 
+const aboutSection = document.querySelector('.about');
+if (aboutSection && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  aboutSection.classList.add('motion-ready');
+  function revealAbout() {
+    const bounds = aboutSection.getBoundingClientRect();
+    if (bounds.top > innerHeight * 0.85 || bounds.bottom < 0) return;
+    aboutSection.classList.add('is-visible');
+    window.removeEventListener('scroll', revealAbout);
+    window.removeEventListener('resize', revealAbout);
+  }
+  window.addEventListener('scroll', revealAbout, { passive: true });
+  window.addEventListener('resize', revealAbout);
+  requestAnimationFrame(revealAbout);
+}
+
 const introTemplate = document.querySelector('.intro')?.cloneNode(true);
 function alignHeroAtTop() {
   const root = document.documentElement;
