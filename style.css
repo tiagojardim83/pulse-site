@@ -78,3 +78,9 @@ body>.header,body>main,body>footer{transition:opacity .75s ease,transform .75s e
 @keyframes ribbon-right{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 .ribbon:hover .ribbon-track{animation-play-state:paused}
 @media(prefers-reduced-motion:reduce){.ribbon-track{animation:none;transform:translateX(-50%)}}
+
+/* Retrato das fundadoras: recorta apenas a margem transparente superior do PNG. */
+.about-visual{max-width:500px}
+.photo-window{width:100%;height:auto;aspect-ratio:700/1061;overflow:hidden;background:transparent}
+.photo-window img{width:100%;height:auto;max-width:none;object-fit:initial;object-position:initial;transform:translateY(-14.71%);display:block}
+@media(max-width:700px){.about-visual{max-width:440px}.photo-window{height:auto}}
