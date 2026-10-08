@@ -61,3 +61,6 @@ body>.header,body>main,body>footer{transition:opacity .75s ease,transform .75s e
 .clients .project-placeholder>span{font-size:11px;font-weight:600;letter-spacing:1.4px}
 .clients .project-placeholder strong{font-family:Manrope,sans-serif;font-size:clamp(34px,4vw,64px);font-weight:500;line-height:1.06;letter-spacing:-.055em}
 @media(max-width:700px){.clients .project-placeholder{height:440px}.clients .project-placeholder strong{font-size:45px}}
+
+.design-credit{font-size:11px;white-space:nowrap;border-bottom:1px solid transparent;padding-bottom:4px}.design-credit strong{font-weight:700}.design-credit:hover{border-color:currentColor}
+@media(max-width:700px){.design-credit{justify-self:end;text-align:right;font-size:10px}.back-top{grid-column:2}}
