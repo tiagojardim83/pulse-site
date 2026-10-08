@@ -67,3 +67,4 @@ body>.header,body>main,body>footer{transition:opacity .75s ease,transform .75s e
 
 .clients .project-brand .project-placeholder>span:last-child{font-size:14px;letter-spacing:1.2px;color:#ffad83}.clients .project-brand:nth-child(2) .project-placeholder{background:linear-gradient(145deg,#4b1665,#713186 55%,#a45aaa)}.clients .project-brand:nth-child(3) .project-placeholder{background:linear-gradient(145deg,#34104e,#642a82 50%,#8e4b9f)}
 @media(max-width:700px){.clients .project-brand .project-placeholder>span:last-child{font-size:12px}}
+.intro-transitioning{overflow:hidden}
