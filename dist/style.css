@@ -36,3 +36,28 @@ body>.header,body>main,body>footer{transition:opacity .75s ease,transform .75s e
 .contact{overflow:hidden}
 
 @media(max-width:700px){.intro-instruction{font-size:9px;letter-spacing:1px;margin-top:38px}}
+
+/* Conexões reais: navegação de clientes e imagens em tons de roxo. */
+.carousel-bar{display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid var(--line);padding-top:18px;margin:58px 0 22px}
+.carousel-eyebrow{font-size:11px;font-weight:600;letter-spacing:1.4px;color:var(--purple)}
+.carousel-eyebrow>span{color:var(--muted);padding:0 10px}
+.carousel-position{font:inherit;font-variant-numeric:tabular-nums}
+.carousel-controls{display:flex;gap:9px}
+.carousel-button{width:52px;height:52px;display:grid;place-items:center;border:1px solid var(--purple);border-radius:50%;background:transparent;color:var(--purple);font-size:25px;line-height:1;cursor:pointer;transition:background .2s,color .2s,opacity .2s}
+.carousel-button:not(:disabled):hover{background:var(--purple);color:white}
+.carousel-button:disabled{opacity:.3;cursor:default}
+.clients .project-grid{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-padding-inline:0;overscroll-behavior-inline:contain}
+.clients .project-grid::-webkit-scrollbar{display:none}
+.clients .project{flex:0 0 calc((100% - 24px)/2);min-width:0;scroll-snap-align:start}
+.clients .project-image{height:clamp(380px,40vw,540px)}
+.clients .project-image img{filter:grayscale(1) contrast(1.12)}
+.clients .project-image:after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#3b0f67,#a768b1);mix-blend-mode:color;pointer-events:none}
+.clients .project-label{z-index:1}
+.clients .project-caption{align-items:end}
+.clients .project-client{display:block;font-size:11px;font-weight:600;letter-spacing:1.2px;color:var(--purple);margin-bottom:8px}
+.clients .project-caption h3{font-size:clamp(21px,2vw,29px)}
+@media(max-width:700px){.carousel-bar{margin:34px 0 18px}.carousel-button{width:46px;height:46px;font-size:22px}.clients .project{flex-basis:100%}.clients .project-image{height:440px}.clients .project-client{font-size:10px}.clients .project-caption h3{font-size:22px}}
+.clients .project-placeholder{height:clamp(380px,40vw,540px);padding:clamp(24px,3vw,46px);display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(145deg,#34104e,#5a2777 55%,#88449a);color:#f4f2ec}
+.clients .project-placeholder>span{font-size:11px;font-weight:600;letter-spacing:1.4px}
+.clients .project-placeholder strong{font-family:Manrope,sans-serif;font-size:clamp(34px,4vw,64px);font-weight:500;line-height:1.06;letter-spacing:-.055em}
+@media(max-width:700px){.clients .project-placeholder{height:440px}.clients .project-placeholder strong{font-size:45px}}

@@ -74,3 +74,36 @@ if (document.documentElement.classList.contains('intro-active') && intro) {
   intro.querySelector('.intro-skip').addEventListener('click', finishIntro);
   document.querySelector('.skip').addEventListener('click', finishIntro);
 }
+
+const clientCarousel = document.querySelector('#client-carousel');
+if (clientCarousel) {
+  const cards = [...clientCarousel.querySelectorAll('.project')];
+  const previous = document.querySelector('.carousel-prev');
+  const next = document.querySelector('.carousel-next');
+  const position = document.querySelector('.carousel-position');
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  function step() {
+    return cards.length > 1 ? cards[1].offsetLeft - cards[0].offsetLeft : 0;
+  }
+  function updateCarousel() {
+    const max = Math.max(0, clientCarousel.scrollWidth - clientCarousel.clientWidth);
+    const current = step() ? Math.round(clientCarousel.scrollLeft / step()) : 0;
+    position.textContent = `${String(current + 1).padStart(2, '0')} / ${String(cards.length).padStart(2, '0')}`;
+    previous.disabled = clientCarousel.scrollLeft <= 2;
+    next.disabled = clientCarousel.scrollLeft >= max - 2;
+  }
+  function moveCarousel(direction) {
+    clientCarousel.scrollBy({ left: direction * step(), behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+  }
+  previous.addEventListener('click', () => moveCarousel(-1));
+  next.addEventListener('click', () => moveCarousel(1));
+  clientCarousel.addEventListener('scroll', updateCarousel, { passive: true });
+  clientCarousel.addEventListener('keydown', event => {
+    if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+      event.preventDefault();
+      moveCarousel(event.key === 'ArrowRight' ? 1 : -1);
+    }
+  });
+  window.addEventListener('resize', updateCarousel);
+  updateCarousel();
+}

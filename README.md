@@ -10,8 +10,10 @@ Execute `python3 -m http.server 4187 --bind 127.0.0.1 --directory dist` nesta pa
 
 - `dist/index.html`: conteúdo, contatos e estrutura.
 - `dist/style.css`: identidade visual e comportamento responsivo.
-- `dist/script.js`: abertura animada, menu móvel e ano do rodapé.
+- `dist/script.js`: abertura animada, carrossel de clientes, menu móvel e ano do rodapé.
 - `dist/assets/`: imagens extraídas do PDF original.
+
+O carrossel reúne três marcas identificadas no PDF e dois espaços reservados para marcas adicionais. Substitua os placeholders apenas quando houver nomes e imagens aprovados. As fotos existentes usam tratamento em tons de roxo.
 
 Fontes DM Sans e Manrope carregadas pelo Google Fonts, com alternativas locais. Sem formulário ou coleta de dados. Links para WhatsApp, Instagram e e-mail usam os contatos fornecidos.
 
