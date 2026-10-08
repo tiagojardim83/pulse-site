@@ -19,7 +19,7 @@ Fontes DM Sans e Manrope carregadas pelo Google Fonts, com alternativas locais. 
 
 ## Validação
 
-Verificado no Chrome em 1440px e 390px: ausência de overflow horizontal, imagens carregadas, expansão dos serviços, abertura e fechamento do menu móvel. A abertura mantém os batimentos em loop até o visitante rolar, arrastar para cima, deslizar no celular ou usar a tecla de navegação. Há opção de pular; a abertura é ignorada quando há preferência por movimento reduzido. O site inclui foco visível e navegação por teclado.
+Verificado no Chrome em 1440px e 390px: ausência de overflow horizontal, imagens carregadas, expansão dos serviços, abertura e fechamento do menu móvel. A abertura mantém os batimentos em loop até o visitante rolar, arrastar para cima, deslizar no celular ou usar a tecla de navegação. Há opção de pular e a marca do cabeçalho reinicia a abertura; ela é ignorada quando há preferência por movimento reduzido. O site inclui foco visível e navegação por teclado.
 
 ## Hospedagem
 
