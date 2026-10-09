@@ -104,3 +104,8 @@ body>.header,body>main,body>footer{transition:opacity .75s ease,transform .75s e
   .about.motion-ready.is-visible .about-copy>*:nth-child(4){transition-delay:.32s}
   .about.motion-ready.is-visible .about-copy>*:nth-child(5){transition-delay:.42s}
 }
+
+/* Marca oficial no cabeçalho e no rodapé. */
+.logo{display:inline-flex;align-items:center;flex:none;letter-spacing:normal}
+.logo img{display:block;width:clamp(126px,11.5vw,152px);height:auto}
+footer .logo img{width:136px}
