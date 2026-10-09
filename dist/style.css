@@ -109,3 +109,22 @@ body>.header,body>main,body>footer{transition:opacity .75s ease,transform .75s e
 .logo{display:inline-flex;align-items:center;flex:none;letter-spacing:normal}
 .logo img{display:block;width:clamp(126px,11.5vw,152px);height:auto}
 footer .logo img{width:136px}
+
+/* Ícones vetoriais mantêm o desenho consistente em sistemas móveis. */
+.icon-sprite{position:absolute;width:0;height:0;overflow:hidden}
+svg.icon{display:block;flex:none}
+.small-spark{width:23px;height:23px}
+.asterisk{width:110px;height:110px}
+.contact-star{width:180px;height:180px}
+.scroll-link svg{width:36px;height:36px}
+.intro-instruction span{display:inline-flex;vertical-align:middle}
+.intro-instruction svg{width:20px;height:20px}
+.intro-skip span{display:inline-flex;vertical-align:middle}
+.intro-skip svg{width:18px;height:18px}
+.carousel-button svg{width:25px;height:25px}
+.ribbon-group b{display:inline-flex;align-items:center}
+.ribbon-group b svg{width:clamp(56px,6.7vw,96px);height:clamp(56px,6.7vw,96px)}
+.back-top{display:inline-flex;align-items:center;gap:5px}
+.back-top svg{width:13px;height:13px}
+@media(max-width:1050px){.asterisk{width:85px;height:85px}.contact-star{width:150px;height:150px}}
+@media(max-width:700px){.asterisk{width:74px;height:74px}.contact-star{width:65px;height:65px}.carousel-button svg{width:22px;height:22px}.ribbon-group b svg{width:44px;height:44px}}
